@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tag</title>
+</head>
+<body>
+    <form action="{{ url_for("merchant.add_tag", username=g.user.username)}}" method="POST">
+        {{ form.csrf_token }}
+        {{ form.tag.label }} {{ form.tag(size=20) }}<br>
+        {{ form.submit}}&emsp;&emsp;
+    </form>
+</body>
+</html>

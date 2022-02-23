@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Take-out Platform</title>
+<link rel="stylesheet">
+<nav>
+  <h1>Take-out Platform</h1>
+  <ul>
+      {% if g.user.username %}
+        <h1>Welcome, {{ g.user['username'] }}!</h1>
+            <a  href="{{ url_for("user.head", username=g.user.username) }}">
+            <img src="{{ url_for('static', filename="/profile_picture/" + g.user.head)}}" alt="" width="100" height="100"></a><br><br>
+          <li><span>{{ g.user['username'] }}</span>
+          <li><a href="{{ url_for("user.profile", username=g.user['username']) }}">Profile</a>
+          <li><a href="{{ url_for("user.reset", username=g.user['username']) }}">Reset password</a></li>
+          <li><a href="{{ url_for('user.logout') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('user.register') }}">Register</a>
+      <li><a href="{{ url_for('user.login') }}">Log In</a>
+        <li><a href="{{ url_for("user.reset", username=g.user['username']) }}">Reset password</a></li>
+    {% endif %}
+  </ul>
+</nav>

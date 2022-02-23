@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家页面</title>
+</head>
+<body>
+    <h1>商家{{ username }}的物品</h1>
+    <label>联系电话： {{ m_i.tel }}</label><br>
+    <label>商家地址： {{ m_i.address }}</label><br>
+    <label>标&emsp;签&emsp;： {{ m_i.tag.name }}</label>
+    {% for i in m_i.items %}
+        <hr/>
+        <img src="{{ url_for('static', filename="/item_img/" + i.picture)}}" alt="" width="50" height="50"><br><br>
+        <p>
+            物品名：{{ i.name }}<br>
+            价格&emsp;：{{ i.price }}<br>
+            描述&emsp;：{{ i.description }}<br>
+        </p>
+        <a href=""><button>点餐</button></a>
+    {% endfor %}
+</body>
+</html>

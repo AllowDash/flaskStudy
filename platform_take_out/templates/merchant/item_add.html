@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加新物品</title>
+</head>
+<body>
+    <h1>新增物品</h1>
+    <form action="{{ url_for("merchant.add_item", username=g.user.username)}}" method="POST" enctype="multipart/form-data">
+        <label>填写物品信息</label><br><br>
+        {{ form.csrf_token }}
+        {{ form.picture.label }} {{ form.picture }}<br>
+        {{ form.name.label }}&emsp; {{ form.name(size=20) }}<br>
+        {{ form.price.label }}&emsp;&emsp; {{ form.price(size=20) }}<br>
+        {{ form.description.label }} {{ form.description(size=20) }}<br>
+        {{ form.submit}}&emsp;&emsp;
+    </form>
+</body>
+</html>

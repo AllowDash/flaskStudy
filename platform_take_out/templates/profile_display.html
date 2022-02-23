@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    <a href="{{ url_for("user.head", username=g.user.username) }}"><img src="{{ url_for('static', filename="/profile_picture/" + g.user.head)}}" alt="" width="100" height="100"></a><br><br>
+    {{ form.csrf_token }}
+    <label>用户名&emsp;： {{ g.user.username }}</label><br>
+    <label>电子邮箱： {{ g.user.email }}</label><br>
+    <label>性&emsp;别&emsp;： {{ g.user.gender }}</label><br>
+    <label>手机号码： {{ g.user.tel }}</label><br>
+    <label>地&emsp;址&emsp;： {{ g.user.address }}</label><br>
+    <!-- 按钮 -->
+    <a href="{{ url_for('user.profile', username=g.user.username, edit=true)}}"><button>修 改</button></a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<title>Take-out Platform</title>
+<link rel="stylesheet">
+<nav>
+  <h1>Take-out Platform</h1>
+  <ul>
+      {% if g.user['username'] %}
+        <h1>Welcome, {{ g.user['username'] }}!</h1>
+            <a  href="{{ url_for("merchant.signature", username=g.user.username) }}">
+            <img src="{{ url_for('static', filename="/merchant_signature/" + g.user.head)}}" alt="" width="100" height="100"></a><br><br>
+          <li><span>{{ g.user['username'] }}</span>
+          <li><a href="{{ url_for("merchant.profile", username=g.user['username']) }}">资料页</a>
+          <li><a href="{{ url_for("merchant.add_item", username=g.user['username']) }}">物品管理</a>
+          <li><a href="{{ url_for('merchant.logout') }}">注销</a>
+    {% else %}
+      <li><a href="{{ url_for('merchant.register') }}">注册</a>
+      <li><a href="{{ url_for('merchant.login') }}">登录</a>
+    {% endif %}
+  </ul>
+</nav>

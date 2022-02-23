@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    <form action="{{ url_for("merchant.profile", username=g.user.username)}}" method="POST">
+        <label>用户名&emsp;： {{ g.user.username }}</label><br>
+        {{ form.csrf_token }}
+        {{ form.tel.label }} {{ form.tel(size=20) }}<br>
+        {{ form.address.label }}&emsp;&emsp; {{ form.address(size=20) }}<br>
+        {{ form.submit}}&emsp;&emsp;
+        <input type="reset" value="重 置">
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+</head>
+<body>
+    <h1>修改密码</h1>
+    <form action="http://localhost:5000/user/{{ username }}/reset" method="POST">
+        {{ form.csrf_token }}
+        {{ form.old_pwd.label }} {{ form.old_pwd(size=20) }}
+        {{ form.new_pwd.label }} {{ form.new_pwd(size=20) }}
+        {{ form.submit }}
+    </form>
+</body>
+</html>

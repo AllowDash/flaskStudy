@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login--Take-out Platform</title>
+</head>
+<body>
+    <h1>What kind of user are you? </h1>
+        <li><a href="{{ url_for('user.index') }}">用户</a></li>
+        <li><a href="{{ url_for('merchant.index') }}">商家</a></li>
+        <a href="{{ url_for('merchant.merchant_list') }}">商家列表</a>
+        <li><a href="{{ url_for('user.index') }}">骑手</a></li>
+    </ul>
+</body>
+</html>

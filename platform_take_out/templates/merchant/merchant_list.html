@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家列表</title>
+</head>
+<body>
+    <h1>商家列表</h1><br/><br/>
+    {% for i in lst %}
+        <hr/>
+        <img src="{{ url_for('static', filename="/merchant_signature/" + i.head)}}" alt="" width="50" height="50"><br><br>
+        <p>
+            商家名：{{ i.username }}<br>
+            标签&emsp;&emsp;：{{ i.tag.name }}<br>
+        </p>
+        <a href="{{ url_for('merchant.profile', username=i.username)}}"><button>进店逛逛</button></a>
+    {% endfor %}
+</body>
+</html>
